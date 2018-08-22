@@ -41,9 +41,9 @@ echo "Resizing complete!"
 echo ""
 echo "3. Creating final image..."
 
-convert `ls -c tmp/image-*.jpg` -set colorspace RGB +append barcode.jpg &>/dev/null
-mogrify -gravity center -crop "$MOVIE_FRAMES"x1000+0+0 barcode.jpg &>/dev/null
+convert `ls -c tmp/image-*.jpg` -set colorspace RGB +append "${MOVIE_PATH}_barcode.png" &>/dev/null
+mogrify -gravity center -crop "$MOVIE_FRAMES"x1000+0+0 "${MOVIE_PATH}_barcode.png" &>/dev/null
 
-echo "Movie barcode created (barcode.jpg)!"
+echo "Movie barcode created (${MOVIE_PATH}_barcode.png)!"
 
 rm ./tmp/*.jpg
